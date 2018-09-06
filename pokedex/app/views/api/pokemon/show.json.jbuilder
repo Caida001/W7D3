@@ -5,8 +5,8 @@ json.pokemon do
     :attack,
     :defense,
     :poke_type,
-    :moves,
-    :image_url
+    :moves
+  json.image_url asset_path(@pokemon.image_url)
 end
 json.items do
   @pokemon.items.each do |item|
@@ -16,8 +16,8 @@ json.items do
         :pokemon_id,
         :name,
         :price,
-        :happiness,
-        :image_url
+        :happiness
+      json.image_url asset_path(item.image_url)
     end
   end
 end

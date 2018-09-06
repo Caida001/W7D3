@@ -2,20 +2,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import PokemonIndex from "./pokemon/pokemon_index";
+import { HashRouter, Route } from 'react-router-dom';
 
 const Root = ({store}) => (
     <Provider store={store}>
-      <PokemonIndex />
+      <HashRouter>
+        <Route path="/" component={PokemonIndex} />
+      </HashRouter>
     </Provider>
   );
-
-
-// function Root(props) {
-//   return (
-//     <Provider store={props.store}>
-//       <div>Hello World</div>
-//     </Provider>
-//   );
-// }
 
 export default Root;

@@ -10,5 +10,10 @@ class Api::PokemonController < ApplicationController
   end
 
   def create
+    @pokemon = Pokemon.new
+    if @pokemon.save
+      render :show
+    else
+      
   end
 end

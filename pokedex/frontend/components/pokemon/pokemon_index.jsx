@@ -3,6 +3,9 @@ import React from "react";
 import {selectAllPokemon} from '../../reducers/selector';
 import {fetchAllPokemon} from '../../actions/pokemon_actions';
 import {connect} from 'react-redux';
+import {PokemonIndexItem} from './pokemon_index_item';
+import PokemonDetail from './pokemon_detail';
+import {Route} from 'react-router-dom';
 
 class PokemonIndex extends React.Component {
   constructor(props) {
@@ -16,17 +19,17 @@ class PokemonIndex extends React.Component {
   render() {
     const pokemon = this.props.pokemon.map( (poke) => {
       return (
-        <li key={poke.id}>
-          <h4>{poke.name}</h4>
-          <img src={poke.image_url}></img>
-        </li>
+        <PokemonIndexItem poke={poke} key={poke.id} />
       );
     });
 
     return (
-      <ul>
-        {pokemon}
-      </ul>
+      <div>
+        <Route path='/pokemon/:pokemonId' component={PokemonDetail} />
+        <ul>
+          {pokemon}
+        </ul>
+      </div>
     );
   }
 }
